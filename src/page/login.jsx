@@ -1,8 +1,14 @@
-import { Component, Fragment } from "react";
+import { Fragment } from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
+import{auth} from "../firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -40,6 +46,24 @@ const socialList = [
 ]
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handlelogin = async (event) => {
+        event.preventDefault();
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("User Registered:", userCredential.user);
+            // Show success notification
+            toast.success("You have successfully login!");
+            // Further actions after successful registration
+            navigate('/dashboard');
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
         <Fragment>
             <Header />
@@ -48,21 +72,25 @@ const LoginPage = () => {
                 <div className="container">
                     <div className="account-wrapper">
                         <h3 className="title">{title}</h3>
-                        <form className="account-form">
+                        <form onSubmit={handlelogin} className="account-form">
                             <div className="form-group">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="User Name *"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Password *"
-                                />
-                            </div>
+                            <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
                             <div className="form-group">
                                 <div className="d-flex justify-content-between flex-wrap pt-sm-2">
                                     <div className="checkgroup">
@@ -72,9 +100,9 @@ const LoginPage = () => {
                                     <Link to="/forgetpass">Forget Password?</Link>
                                 </div>
                             </div>
-                            <div className="form-group text-center">
-                                <button className="d-block lab-btn"><span>{btnText}</span></button>
-                            </div>
+                            <div className="form-group">
+                    <button type="submit" className="lab-btn"><span>Login Now</span></button>
+                </div>
                         </form>
                         <div className="account-bottom">
                             <span className="d-block cate pt-10">Don’t Have any Account?  <Link to="/signup">Sign Up</Link></span>
@@ -88,6 +116,7 @@ const LoginPage = () => {
                                 ))}
                             </ul>
                         </div>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

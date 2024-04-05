@@ -14,6 +14,7 @@ import CartPage from "./page/cart-page";
 import ContactPage from "./page/contact";
 import CoursePage from "./page/course";
 import CourseSingle from "./page/course-single";
+import CourseView from "./page/course-view";
 import ForgetPass from "./page/forgetpass";
 import Home from "./page/home";
 import HomeTwo from "./page/home-2";
@@ -31,12 +32,17 @@ import ShopDetails from "./page/shop-single";
 import SignupPage from "./page/signup";
 import TeamPage from "./page/team";
 import TeamSingle from "./page/team-single";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "./page/dashboard";
+import { AuthProvider } from './AuthContext';
+
 
 
 
 function App() {
 	return (
 		<BrowserRouter>
+		<AuthProvider>
 			<ScrollToTop />
 			<Routes>
 				<Route path="/" element={<Home />} />
@@ -48,6 +54,7 @@ function App() {
 				<Route path="index-7" element={<HomeSeven />} />
 				<Route path="course" element={<CoursePage />} />
 				<Route path="course-single" element={<CourseSingle />} />
+				<Route path="course-view" element={<CourseView />} />
 				<Route path="blog" element={<BlogPage />} />
 				<Route path="blog-2" element={<BlogPageTwo />} />
 				<Route path="blog-3" element={<BlogPageThree />} />
@@ -66,7 +73,17 @@ function App() {
 				<Route path="signup" element={<SignupPage />} />
 				<Route path="forgetpass" element={<ForgetPass />} />
 				<Route path="*" element={<ErrorPage />} />
+				<Route path="/dashboard" element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          } />
+       
+				
+				
+
 			</Routes>
+			</AuthProvider>
 		</BrowserRouter>
 	);
 }

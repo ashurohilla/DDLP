@@ -62,22 +62,19 @@ const Header = () => {
             <div className="header-bottom">
                 <div className="container">
                     <div className="header-wrapper">
-                        <div className="logo">
-                            <Link to="/"><img src="assets/images/logo/01.png" alt="logo" /></Link>
-                        </div>
+                    <div className="logo">
+                    <Link to="/">
+                    <img src="assets/images/logo/01.png" alt="logo" style={{    width: '60%' }} />
+                       </Link>
+                    </div>
+
                         <div className="menu-area">
                             <div className="menu">
                                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
                                     <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Home</a>
+                                        <a href="/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" Link to="/">Home</a>
                                         <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/">Home One</NavLink></li>
-                                            <li><NavLink to="/index-2">Home Two</NavLink></li>
-                                            <li><NavLink to="/index-3">Home Three</NavLink></li>
-                                            <li><NavLink to="/index-4">Home Four</NavLink></li>
-                                            <li><NavLink to="/index-5">Home Five</NavLink></li>
-                                            <li><NavLink to="/index-6">Home Six</NavLink></li>
-                                            <li><NavLink to="/index-7">Home Seven</NavLink></li>
                                         </ul>
                                     </li>
                                     <li className="menu-item-has-children">
@@ -85,6 +82,7 @@ const Header = () => {
                                         <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/course">Course</NavLink></li>
                                             <li><NavLink to="/course-single">Course Details</NavLink></li>
+                                            <li><NavLink to="/course-view">Course View</NavLink></li>
         
                                         </ul>
                                     </li>
