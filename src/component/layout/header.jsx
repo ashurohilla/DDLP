@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const phoneNumber = "+800-123-4567 6587";
-const address = "Beverley, New York 224 USA";
+const phoneNumber = "+44 7441441208";
+const address = "40 Bank street, London, E14 5NR, United Kingdom ";
 
 
 let socialList = [
@@ -113,6 +113,7 @@ const Header = () => {
                                 </ul>
                             </div>
                             
+                            <Link to="/lab" className="signup"> <span>LAB TEST</span> </Link>
                             <Link to="/login" className="login"><i className="icofont-user"></i> <span>LOG IN</span> </Link>
                             <Link to="/signup" className="signup"><i className="icofont-users"></i> <span>SIGN UP</span> </Link>
 

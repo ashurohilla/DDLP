@@ -35,6 +35,7 @@ import TeamSingle from "./page/team-single";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./page/dashboard";
 import { AuthProvider } from './AuthContext';
+import Das from "./page/das";
 
 
 
@@ -72,10 +73,16 @@ function App() {
 				<Route path="login" element={<LoginPage />} />
 				<Route path="signup" element={<SignupPage />} />
 				<Route path="forgetpass" element={<ForgetPass />} />
+				
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="/dashboard" element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          } />
+				<Route path="/lab" element={
+            <PrivateRoute>
+              <Das/>
             </PrivateRoute>
           } />
        

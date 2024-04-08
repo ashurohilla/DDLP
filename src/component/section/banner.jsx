@@ -1,26 +1,26 @@
 
 
 
-const subTitle = "Online education";
+const subTitle = "Welcome to Diana Advanced Tech Academy";
 const title = <h2 className="title"><span className="d-lg-block">Learn The</span> Skills You Need <span className="d-lg-block">To Succeed</span></h2>;
-const desc = "Free online courses from the world’s Leading experts. join 18+ million Learners today.";
+const desc = "Best online courses from the world’s Leading experts. join 1.5+ million Learners today.";
 
 
 const catagoryList = [
     {
-        name: 'Figma',
+        name: 'Cyber Security',
         link: '#',
     },
     {
-        name: 'Adobe XD',
+        name: 'Diana AI Program',
         link: '#',
     },
     {
-        name: 'illustration',
+        name: 'Blockchain',
         link: '#',
     },
     {
-        name: 'Photoshop',
+        name: 'AWS Courses',
         link: '#',
     },
 ]
