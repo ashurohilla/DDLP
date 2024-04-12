@@ -159,7 +159,7 @@ const TeamSingle = () => {
                             </div>
                             <div className="col-xl-6 d-flex flex-wrap justify-content-lg-start justify-content-between">
                                 <h4 className="subtitle">{awardTitle}</h4>
-                                {awardList.map((val, i) => (
+                     h            {awardList.map((val, i) => (
                                     <div className="skill-item text-center" key={i}>
                                         <div className="skill-thumb">
                                             <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />

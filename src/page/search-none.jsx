@@ -2,7 +2,6 @@ import { Component, Fragment } from "react";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
-
 const subTitle = "Couldn't find what you're looking for!"
 const title = "Oops!"
 const searchTitle = "Need a new search?";

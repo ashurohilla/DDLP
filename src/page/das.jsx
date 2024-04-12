@@ -46,7 +46,7 @@ const App = () => {
               !open && "scale-0"
             }`}
           >
-            Designer
+            DDLP
           </h1>
         </div>
         <ul className="pt-6">
@@ -57,17 +57,17 @@ const App = () => {
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                 index === 0 && "bg-light-white"
               } `}
-            >
-              <img src={Menu.src} />
+             >
+              <img src={Menu.src}/> 
               <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
+              {Menu.title}
               </span>
             </li>
           ))}
         </ul>
       </div>
       <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+        <h1 className="text-2xl font-semibold">Home Page</h1>
       </div>
     </div>
   );

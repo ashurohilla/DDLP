@@ -36,6 +36,7 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./page/dashboard";
 import { AuthProvider } from './AuthContext';
 import Das from "./page/das";
+import CourseAdd from "./page/Courseadd";
 
 
 
@@ -72,7 +73,9 @@ function App() {
 				<Route path="contact" element={<ContactPage />} />
 				<Route path="login" element={<LoginPage />} />
 				<Route path="signup" element={<SignupPage />} />
+				<Route path="addcourse" element={<CourseAdd />} />
 				<Route path="forgetpass" element={<ForgetPass />} />
+				
 				
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="/dashboard" element={
