@@ -71,42 +71,15 @@ const Header = () => {
                         <div className="menu-area">
                             <div className="menu">
                                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
-                                    <li className="menu-item-has-children">
-                                        <a href="/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" Link to="/">Home</a>
-                                        <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/">Home One</NavLink></li>
-                                        </ul>
-                                    </li>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Courses</a>
-                                        <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/course">Course</NavLink></li>
-                                            <li><NavLink to="/course-single">Course Details</NavLink></li>
-                                            <li><NavLink to="/course-view">Course View</NavLink></li>
-        
-                                        </ul>
-                                    </li>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Blog</a>
-                                        <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/blog">Blog Grid</NavLink></li>
-                                            <li><NavLink to="/blog-2">Blog Style 2</NavLink></li>
-                                            <li><NavLink to="/blog-3">Blog Style 3</NavLink></li>
-                                            <li><NavLink to="/blog-single">Blog Single</NavLink></li>
-                                        </ul>
-                                    </li>
+                                <li><NavLink to="/">Home</NavLink></li>
+                                <li><NavLink to="/course">Courses</NavLink></li>
+                                    <li><NavLink to="/blog">Blog</NavLink></li>
                                     <li className="menu-item-has-children">
                                         <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Pages</a>
                                         <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/about">About</NavLink></li>
                                             <li><NavLink to="/team">Team</NavLink></li>
                                             <li><NavLink to="/instructor">Instructor</NavLink></li>
-                                            <li><NavLink to="/shop">Shop Page</NavLink></li>
-                                            <li><NavLink to="/shop-single">Shop Details Page</NavLink></li>
-                                            <li><NavLink to="/cart-page">Shop Cart Page</NavLink></li>
-                                            <li><NavLink to="/search-page">Search Page</NavLink></li>
-                                            <li><NavLink to="/search-none">Search None</NavLink></li>
-                                            <li><NavLink to="/404">404</NavLink></li>
                                         </ul>
                                     </li>
                                     <li><NavLink to="/contact">Contact</NavLink></li>

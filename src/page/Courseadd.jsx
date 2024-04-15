@@ -65,7 +65,6 @@ const CourseAdd = () => {
 
   const Submit = (e) => {
     e.preventDefault();
-
     if (courseName.trim() === '' || courseDesc.trim() === '' || !thumbnailFile) {
       console.log('Please fill in all fields and upload a thumbnail.');
       return;
