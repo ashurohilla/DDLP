@@ -1,8 +1,7 @@
 
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
 import 'swiper/css';
-
-
+import { AuthProvider } from "./hooks/useauth";
 import ScrollToTop from "./component/layout/ScrollToTop";
 import ErrorPage from "./page/404";
 import AboutPage from "./page/about";
@@ -16,7 +15,7 @@ import CourseView from "./page/course-view";
 import ForgetPass from "./page/forgetpass";
 import Home from "./page/home";
 import InstructorPage from "./page/instructor";
-import LoginPage from "./page/login";
+import { LoginPage } from "./page/login";
 import SearchNone from "./page/search-none";
 import SearchPage from "./page/search-page";
 import ShopPage from "./page/shop";
@@ -24,18 +23,14 @@ import ShopDetails from "./page/shop-single";
 import SignupPage from "./page/signup";
 import TeamPage from "./page/team";
 import TeamSingle from "./page/team-single";
-import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./page/dashboard";
-import { AuthProvider } from './AuthContext';
 import Das from "./page/das";
 import CourseAdd from "./page/Courseadd";
 import AuthDash from "./page/authDash";
 import QuizForm from "./page/QuizForm";
-
-
-
-
+import { useAuth } from "./hooks/useauth";
 function App() {
+	const  currentUser  = useAuth();
 	return (
 		<BrowserRouter>
 		<AuthProvider>
@@ -64,21 +59,12 @@ function App() {
 				<Route path="addcourse" element={<CourseAdd />} />
 				<Route path="forgetpass" element={<ForgetPass />} />
 				
-				
 				<Route path="*" element={<ErrorPage />} />
-				<Route path="/dashboard" element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          } />
-				<Route path="/lab" element={
-            <PrivateRoute>
-              <Das/>
-            </PrivateRoute>
-          } />
-       
-				
-				
+				<Route path="dashboard" element={<Dashboard />} />
+
+		
+			 
+				{/* <Route path="dashboard" element={currentUser ? <Dashboard/> : LoginPage} /> */}
 
 			</Routes>
 			</AuthProvider>

@@ -1,21 +1,22 @@
-import { Fragment } from "react";
-import React, { useState, useEffect } from 'react';
+import { Fragment, createContext, useState, useEffect, useContext } from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
-import{auth} from "../firebase.config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.config";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie'; // Import Cookies library
 
-
+// Create a context for user authentication
+const AuthContext = createContext();
 
 const title = "Login";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
-
 
 const socialList = [
     {
@@ -55,6 +56,8 @@ const LoginPage = () => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log("User Registered:", userCredential.user);
+            // Store user information in cookies
+            Cookies.set('user', userCredential.user);
             // Show success notification
             toast.success("You have successfully login!");
             // Further actions after successful registration
@@ -64,65 +67,79 @@ const LoginPage = () => {
         }
     }
 
+    // useEffect(() => {
+    //     // Check if user is already logged in from cookies
+    //     const userFromCookie = Cookies.get('user');
+    //     if (userFromCookie) {
+    //         // Redirect to dashboard if user is logged in
+    //         navigate('/dashboard');
+    //     }
+    // }, [user]);
+
     return (
         <Fragment>
             <Header />
             <PageHeader title={'Login Page'} curPage={'Login'} />
-            <div className="login-section padding-tb section-bg">
-                <div className="container">
-                    <div className="account-wrapper">
-                        <h3 className="title">{title}</h3>
-                        <form onSubmit={handlelogin} className="account-form">
-                            <div className="form-group">
-                            <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                            <div className="form-group">
-                                <div className="d-flex justify-content-between flex-wrap pt-sm-2">
-                                    <div className="checkgroup">
-                                        <input type="checkbox" name="remember" id="remember" />
-                                        <label htmlFor="remember">Remember Me</label>
-                                    </div>
-                                    <Link to="/forgetpass">Forget Password?</Link>
+            <AuthContext.Provider value={{ handlelogin }}>
+                <div className="login-section padding-tb section-bg">
+                    <div className="container">
+                        <div className="account-wrapper">
+                            <h3 className="title">{title}</h3>
+                            <form onSubmit={handlelogin} className="account-form">
+                                <div className="form-group">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
                                 </div>
+                                <div className="form-group">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <div className="d-flex justify-content-between flex-wrap pt-sm-2">
+                                        <div className="checkgroup">
+                                            <input type="checkbox" name="remember" id="remember" />
+                                            <label htmlFor="remember">Remember Me</label>
+                                        </div>
+                                        <Link to="/forgetpass">Forget Password?</Link>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <button type="submit" className="lab-btn"><span>Login Now</span></button>
+                                </div>
+                            </form>
+                            <div className="account-bottom">
+                                <span className="d-block cate pt-10">Don’t Have any Account?  <Link to="/signup">Sign Up</Link></span>
+                                <span className="or"><span>or</span></span>
+                                <h5 className="subtitle">{socialTitle}</h5>
+                                <ul className="lab-ul social-icons justify-content-center">
+                                    {socialList.map((val, i) => (
+                                        <li key={i}>
+                                            <a href={val.link} className={val.className}><i className={val.iconName}></i></a>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <div className="form-group">
-                    <button type="submit" className="lab-btn"><span>Login Now</span></button>
-                </div>
-                        </form>
-                        <div className="account-bottom">
-                            <span className="d-block cate pt-10">Don’t Have any Account?  <Link to="/signup">Sign Up</Link></span>
-                            <span className="or"><span>or</span></span>
-                            <h5 className="subtitle">{socialTitle}</h5>
-                            <ul className="lab-ul social-icons justify-content-center">
-                                {socialList.map((val, i) => (
-                                    <li key={i}>
-                                        <a href={val.link} className={val.className}><i className={val.iconName}></i></a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <ToastContainer />
                         </div>
-                        <ToastContainer />
                     </div>
                 </div>
-            </div>
+            </AuthContext.Provider>
             <Footer />
         </Fragment>
     );
 }
- 
-export default LoginPage;
+
+// Custom hook to access the AuthContext
+const useAuth = () => useContext(AuthContext);
+
+export { LoginPage, useAuth };

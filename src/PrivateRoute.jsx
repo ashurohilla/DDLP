@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext';
+import { useAuth } from './hooks/useauth'; // Make sure the path to your useAuth hook is correct
+import Dashboard from './page/dashboard';
+import { LoginPage } from './page/login';
 
-const PrivateRoute = ({ children }) => {
-  const { currentUser } = useContext(AuthContext);
-
-  return currentUser ? children : <Navigate to="/login" replace />;
+const PrivateRoute = () => {
+  const { currentUser } = useAuth();
+  return currentUser ? (
+    <Route path="/dashboard" element={<Dashboard />} />
+  ) : (
+    <Route path="/login" element={<LoginPage />} />
+  );
 };
 
 export default PrivateRoute;
