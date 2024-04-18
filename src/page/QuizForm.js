@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FiTrash2, FiCheck } from 'react-icons/fi';
+import Sidebar from '../component/Sidebar';
+import { useStateContext } from '../Context/ContextProvider';
 
 const QuizBuilder = () => {
   const [course, setCourse] = useState('');
@@ -52,7 +54,23 @@ const QuizBuilder = () => {
   };
 
   return (
+    <div className="flex relative dark:bg-main-dark-bg">
+    {/* Container for settings button */}
+    <div className="fixed top-4 right-4 z-50">
+        {/* Settings button content */}
+    </div>
+
+    {/* Sidebar */}
+    <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white dark:bg-main-bg bg-main-bg min-h-screen">
+        <Sidebar />
+    </div>
+    
+   
+    <div className="ml-72 flex-1 dark:bg-main-dark-bg bg-main-bg min-h-screen"> 
+    
     <div className="flex justify-center mt-10 pt-10">
+      
+      
       <div className="w-4/5 p-16 bg-white shadow-lg rounded-lg">
         <h1 className="text-2xl font-bold mb-4 text-center">Quiz Builder</h1>
         <div className="mb-4">
@@ -134,6 +152,8 @@ const QuizBuilder = () => {
           Add Question
         </button>
       </div>
+    </div>
+    </div>
     </div>
   );
 };

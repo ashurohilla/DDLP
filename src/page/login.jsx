@@ -58,7 +58,7 @@ const LoginPage = () => {
             // Show success notification
             toast.success("You have successfully login!");
             // Further actions after successful registration
-            navigate('/dashboard');
+            navigate('/dashboard/quiz');
         } catch (err) {
             console.error(err);
         }

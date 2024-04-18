@@ -31,28 +31,39 @@ import Das from "./page/das";
 import CourseAdd from "./page/Courseadd";
 import AuthDash from "./page/authDash";
 import QuizForm from "./page/QuizForm";
+import Layout from '../src/component/Layout';
+import StudentsDash from "./page/StudentsDash";
+import Sidebar from "./component/Sidebar";
+import Logout from "./page/Logout";
 
 
 
 
 function App() {
 	return (
+		<div>
 		<BrowserRouter>
-		<AuthProvider>
+		
+       
+
+      <AuthProvider>
 			<ScrollToTop />
 			<Routes>
+				<Route path="dashboard/quiz" element={<QuizForm />} />
 				<Route path="/" element={<Home />} />
 				<Route path="course" element={<CoursePage />} />
+				<Route path="logout" element={<Logout />} />
 				<Route path="course-single" element={<CourseSingle />} />
 				<Route path="course-view" element={<CourseView />} />
 				<Route path="blog" element={<BlogPageTwo />} />
 				<Route path="blog-single" element={<BlogSingle />} />
 				<Route path="about" element={<AboutPage />} />
 				<Route path="team" element={<TeamPage />} />
+				<Route path="my-learning" element={<StudentsDash />} />
 				<Route path="team-single" element={<TeamSingle />} />
 				<Route path="instructor" element={<InstructorPage />} />
 				<Route path="shop" element={<ShopPage />} />
-				<Route path="quiz" element={<QuizForm />} />
+				
 				<Route path="shop-single" element={<ShopDetails />} />
 				<Route path="cart-page" element={<CartPage />} />
 				<Route path="search-page" element={<SearchPage />} />
@@ -66,12 +77,12 @@ function App() {
 				
 				
 				<Route path="*" element={<ErrorPage />} />
-				<Route path="/dashboard" element={
+				<Route path="/dash" element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           } />
-				<Route path="/lab" element={
+				<Route path="/dashboard" element={
             <PrivateRoute>
               <Das/>
             </PrivateRoute>
@@ -82,7 +93,9 @@ function App() {
 
 			</Routes>
 			</AuthProvider>
+			
 		</BrowserRouter>
+		</div>
 	);
 }
 
