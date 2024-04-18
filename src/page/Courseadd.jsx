@@ -3,6 +3,9 @@ import { Input, Textarea, Button } from "@material-tailwind/react";
 import { db, storage } from '../firebase.config';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import CourseSettings from '../lakshitaa/CourseSetting';
+import Modal from '../lakshitaa/ParentComponent'
+
 
 const CourseAdd = () => {
   const [courseName, setCourseName] = useState('');
@@ -83,6 +86,11 @@ const CourseAdd = () => {
   };
 
   return (
+    <>
+          <CourseSettings/>
+          <div className='h-12'></div>
+          <Modal/>
+
     <div className="flex justify-center items-center mt-20">
       <div className="w-full md:w-1/2 px-4">
         <div className="mb-4 text-align:center">
@@ -151,6 +159,7 @@ const CourseAdd = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
