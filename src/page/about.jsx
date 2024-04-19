@@ -7,6 +7,7 @@ import Blog from "../component/section/blog";
 import Instructor from "../component/section/instructor";
 import Skill from "../component/section/skill";
 import Student from "../component/section/student";
+import Sidebar from "../component/Sidebar";
 
 
 

@@ -17,34 +17,15 @@ export const links = [
       title: 'Dashboard',
       links: [
         {
-          name: 'Lead Management',
+          name: 'Create Quiz',
           icon: <BsKanban />,
-          route: 'LeadManagement',
+          route: 'dashboard/quiz',
         },
         {
-          name: 'Client Profiles',
+          name: 'Create Course',
           icon: <IoMdContacts />,
-          route: 'Clientsprofiles',
+          route: 'addcourse',
         },
-        {
-          name: 'Enrollment & Registration',
-          icon: <FiEdit />,
-          route: 'EnrollmentandRegistration',
-        },
-        {
-          name: 'Courses & Program Management',
-          icon: <FiShoppingBag />,
-          route: 'CoursesandProgrammanagement',
-          
-        },
-        
-        {
-          name: 'Hiring Candidate List',
-          icon: <IoMdContacts />,
-          route: 'hiring',
-          
-        },
-        
       ],
     },
   
@@ -57,96 +38,10 @@ export const links = [
           route: 'instructorandtrainer',
         },
         {
-          name: 'Login to LMS',
+          name: 'Logout',
           icon: <IoMdContacts />,
-          route: 'LMSLogin',
+          route: 'logout',
         },
       ],
     },
-    {
-      title: 'Apps',
-      links: [
-        {
-          name: 'Calendar & Scheduling',
-          icon: <AiOutlineCalendar />,
-          route: 'Calendar',
-        },
-        {
-          name: 'Document Management',
-          icon: <BsKanban />,
-          route: 'Document_Management',
-        },
-        {
-          name: 'Support & Ticketing',
-          icon: <FiEdit />,
-          route: 'support',
-        },
-        {
-          name: 'Compliance & Security',
-          icon: <AiOutlineStock />,
-          route: 'Security',
-        },
-        {
-          name: 'Campaign',
-          icon: <AiOutlineBarChart />,
-          route: 'campaign',
-        },
-        {
-          name: 'Generate Certificate',
-          icon: <AiOutlineBarChart />,
-          route: 'Generate-Certificate',
-        },
-        // {
-        //   name: 'Email Editor',
-        //   icon: <FiPieChart />,
-        //   route: 'GrapesMain',
-        // },
-      ],
-    },
-    // {
-    //   title: 'Charts',
-    //   links: [
-    //     {
-    //       name: 'Mobile Access',
-    //       icon: <AiOutlineStock />,
-    //       route: 'Mobile',
-    //     },
-    //     {
-    //       name: 'Feedback & Surveys',
-    //       icon: <AiOutlineAreaChart />,
-    //       route: 'Feedback',
-    //     },
-  
-    //     {
-    //       name: 'Integration',
-    //       icon: <AiOutlineBarChart />,
-    //       route: 'Integration',
-    //     },
-    //     {
-    //       name: 'Customization & Scalability',
-    //       icon: <FiPieChart />,
-    //       route: 'Customization',
-    //     },
-    //     {
-    //       name: 'User Training & Support',
-    //       icon: <RiStockLine />,
-    //       route: 'Training-Support',
-    //     },
-    //     {
-    //       name: 'color-mapping',
-    //       icon: <BsBarChart />,
-    //       route: 'color',
-    //     },
-    //     {
-    //       name: 'pyramid',
-    //       icon: <GiLouvrePyramid />,
-    //       route: 'pyramid',
-    //     },
-    //     {
-    //       name: 'stacked',
-    //       icon: <AiOutlineBarChart />,
-    //       route: 'stacked',
-    //     },
-    //   ],
-    // },
   ];

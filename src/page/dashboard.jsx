@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+
 import React  from 'react';
 import { useAuth } from '../hooks/useauth';
+
+import React, { useContext } from 'react';
+import { AuthContext } from '../AuthContext';
+import Sidebar from "../component/Sidebar";
+
+
+
 const title = "Thank u for Login";
 
 const Dashboard = () => {
@@ -17,6 +25,11 @@ const Dashboard = () => {
       };
     
     return ( 
+
+
+        
+       
+
         <div className="four-zero-section padding-tb section-bg">
             <div className="container">
                 <div className="row align-items-center">
@@ -39,6 +52,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>  
+       
     );
 }
 

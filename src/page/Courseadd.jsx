@@ -3,6 +3,10 @@ import { Input, Textarea, Button } from "@material-tailwind/react";
 import { db, storage } from '../firebase.config';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import CourseSettings from '../lakshitaa/CourseSetting';
+import Modal from '../lakshitaa/ParentComponent'
+import Sidebar from '../component/Sidebar';
+
 
 const CourseAdd = () => {
   const [courseName, setCourseName] = useState('');
@@ -83,7 +87,24 @@ const CourseAdd = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-20">
+
+    <div className="flex relative dark:bg-main-dark-bg">
+    {/* Container for settings button */}
+    <div className="fixed top-4 right-4 z-50">
+        {/* Settings button content */}
+    </div>
+
+    {/* Sidebar */}
+    <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white dark:bg-main-bg bg-main-bg min-h-screen">
+        <Sidebar />
+    </div>
+    
+   
+    <div className="ml-72 flex-1 dark:bg-main-dark-bg bg-main-bg min-h-screen">
+    <>
+          
+
+    <div className="flex justify-left items-center mt-20">
       <div className="w-full md:w-1/2 px-4">
         <div className="mb-4 text-align:center">
           <h1>Add Course</h1>
@@ -145,11 +166,19 @@ const CourseAdd = () => {
               onChange={(e) => setThumbnailFile(e.target.files[0])}
             />
           </div>
+          <CourseSettings/>
+          <div className="h-12 mb-3 mt-3">
+          <Modal/>
+          </div>
           <div className="mb-4" type="submit" onClick={Submit}>
             <Button variant="filled">Add Course</Button>
           </div>
         </div>
       </div>
+    </div>
+    
+    </>
+    </div>
     </div>
   );
 };
