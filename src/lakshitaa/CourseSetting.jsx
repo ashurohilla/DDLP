@@ -9,7 +9,7 @@ const CourseSettings = () => {
   const difficultyLevels = ["All Levels", "Beginner", "Intermediate", "Expert"];
 
   return (
-    <div className="bg-gradient-to-b from-[#FFF] to-[#F9E8B0] p-8 border-solid rounded-lg shadow-md">
+    <div className=" p-8 border-solid rounded-lg shadow-md">
       <h2 className="text-black text-2xl mb-4">Course Settings</h2>
 
       <div className="flex flex-col mb-4">

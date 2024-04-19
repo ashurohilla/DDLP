@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { Input, Textarea, Button } from "@material-tailwind/react";
 
 const Modal = ({ onAddTopic, initialTopicName, initialTopicSummary }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,12 +34,9 @@ const Modal = ({ onAddTopic, initialTopicName, initialTopicSummary }) => {
 
   return (
     <>
-      <button
-        className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        onClick={openModal}
-      >
-       Add Topic
-      </button>
+      <div className="mb-4" type="submit" onClick={openModal}>
+            <Button variant="filled">Add Topic</Button>
+          </div>
       {isOpen && (
         <>
           <div className="fixed inset-0 bg-black opacity-75 z-40" onClick={closeModal}></div>
@@ -90,7 +88,7 @@ const Modal = ({ onAddTopic, initialTopicName, initialTopicSummary }) => {
                       />
                       <div className="flex">
                         <img
-                          src="/info.svg"
+                          src="https://ik.imagekit.io/growthx100/icon(33).svg?updatedAt=1713449897089"
                           alt=""
                           className="w-4 mt-2 h-4 inline-block mr-1"
                         />
@@ -115,7 +113,7 @@ const Modal = ({ onAddTopic, initialTopicName, initialTopicSummary }) => {
                       />
                       <div className="flex">
                         <img
-                          src="/info.svg"
+                          src="https://ik.imagekit.io/growthx100/icon(33).svg?updatedAt=1713449897089"
                           alt=""
                           className="w-4 mt-2 h-4 inline-block mr-1"
                         />
@@ -129,7 +127,7 @@ const Modal = ({ onAddTopic, initialTopicName, initialTopicSummary }) => {
                     <div className="flex bg-gray-50 gap-20 mt-5 justify-around ">
                       <button
                         onClick={closeModal}
-                        className="w-fir text-blue-700 hover:text-white bg-white hover:bg-blue-800 border border-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                        className="w-fir text-blue-700 hover:text-blue bg-white hover:bg-blue-800 border border-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                       >
                         Cancel
                       </button>

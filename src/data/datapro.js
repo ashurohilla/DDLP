@@ -24,7 +24,7 @@ export const links = [
         {
           name: 'Create Course',
           icon: <IoMdContacts />,
-          route: 'Clientsprofiles',
+          route: 'addcourse',
         },
       ],
     },
